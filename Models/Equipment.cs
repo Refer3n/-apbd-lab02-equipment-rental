@@ -15,6 +15,7 @@ public abstract class Equipment
         Status = EquipmentStatus.Available;
     }
     
+    public void MarkRented() => Status = EquipmentStatus.Rented;
     public void MarkAvailable() => Status = EquipmentStatus.Available;
     public void MarkUnavailable() => Status = EquipmentStatus.Unavailable;
     
