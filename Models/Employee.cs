@@ -1,14 +1,8 @@
 ﻿namespace EquipmentRental.Models;
 
-public class Employee : User
+public class Employee(int id, string firstName, string lastName, string position, string department)
+    : User(id, firstName, lastName)
 {
-    public string Position { get; set; }
-    public string Department { get; set; }
-
-    public Employee(int id, string firstName, string lastName, string position, string department)
-        : base(id, firstName, lastName)
-    {
-        Position = position;
-        Department = department;
-    }
+    public string Position { get; set; } = position;
+    public string Department { get; set; } = department;
 }

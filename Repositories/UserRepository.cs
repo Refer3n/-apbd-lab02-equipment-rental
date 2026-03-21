@@ -4,7 +4,7 @@ namespace EquipmentRental.Repositories
 {
     public class UserRepository
     {
-        private readonly List<User> users = new();
+        private readonly List<User> users = [];
 
         public void Add(User user)
         {
@@ -13,7 +13,7 @@ namespace EquipmentRental.Repositories
 
         public List<User> GetAll()
         {
-            return users;
+            return users.ToList();
         }
 
         public User? FindById(int id)
