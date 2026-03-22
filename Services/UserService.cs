@@ -11,7 +11,6 @@ namespace EquipmentRental.Services
         public Student AddStudent(string firstName, string lastName, string studentNumber, string faculty)
         {
             ValidateName(firstName, lastName);
-
             ArgumentException.ThrowIfNullOrWhiteSpace(studentNumber);
             ArgumentException.ThrowIfNullOrWhiteSpace(faculty);
 
@@ -24,7 +23,6 @@ namespace EquipmentRental.Services
         public Employee AddEmployee(string firstName, string lastName, string position, string department)
         {
             ValidateName(firstName, lastName);
-
             ArgumentException.ThrowIfNullOrWhiteSpace(position);
             ArgumentException.ThrowIfNullOrWhiteSpace(department);
 

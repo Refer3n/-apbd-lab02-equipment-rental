@@ -1,7 +1,7 @@
 ﻿using EquipmentRental.Exceptions;
 using EquipmentRental.Models;
-using EquipmentRental.Repositories;
 using EquipmentRental.Models.Enums;
+using EquipmentRental.Repositories;
 
 namespace EquipmentRental.Services
 {
@@ -12,11 +12,8 @@ namespace EquipmentRental.Services
         public Laptop AddLaptop(string name, int ramGb, string cpu, decimal displayDiagonal)
         {
             ValidateEquipmentName(name);
-
             ArgumentOutOfRangeException.ThrowIfLessThan(ramGb, 1);
-
             ArgumentOutOfRangeException.ThrowIfLessThan(displayDiagonal, 1);
-
             ArgumentException.ThrowIfNullOrWhiteSpace(cpu);
 
             var laptop = new Laptop(nextEquipmentId++, name, displayDiagonal, ramGb, cpu);
@@ -28,9 +25,7 @@ namespace EquipmentRental.Services
         public Projector AddProjector(string name, string resolution, int brightnessLumens, bool portable)
         {
             ValidateEquipmentName(name);
-
             ArgumentException.ThrowIfNullOrWhiteSpace(resolution);
-
             ArgumentOutOfRangeException.ThrowIfLessThan(brightnessLumens, 1);
 
             var projector = new Projector(nextEquipmentId++, name, resolution, brightnessLumens, portable);
@@ -42,8 +37,8 @@ namespace EquipmentRental.Services
         public Camera AddCamera(string name, int megapixels, int maxIso, bool hasVideoRecording)
         {
             ValidateEquipmentName(name);
-
             ArgumentOutOfRangeException.ThrowIfLessThan(megapixels, 1);
+            ArgumentOutOfRangeException.ThrowIfLessThan(maxIso, 1);
 
             var camera = new Camera(nextEquipmentId++, name, megapixels, maxIso, hasVideoRecording);
             equipmentRepository.Add(camera);
