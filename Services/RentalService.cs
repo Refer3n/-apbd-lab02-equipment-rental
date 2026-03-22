@@ -12,7 +12,7 @@ namespace EquipmentRental.Services
         private readonly PolicyService policyService;
         private readonly PenaltyService penaltyService;
 
-        private int _nextRentalId = 1;
+        private int nextRentalId = 1;
 
         public RentalService(
             UserRepository userRepository,
@@ -52,7 +52,7 @@ namespace EquipmentRental.Services
 
             var dueDate = rentalDate.AddDays(rentalDays);
 
-            var rental = new Rental(_nextRentalId++, user, equipment, rentalDate, dueDate);
+            var rental = new Rental(nextRentalId++, user, equipment, rentalDate, dueDate);
 
             rentalRepository.Add(rental);
             equipment.MarkRented();
